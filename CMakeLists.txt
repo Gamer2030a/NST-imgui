@@ -18,11 +18,18 @@ add_library(ImGui STATIC
         imstb_textedit.h
         imstb_truetype.h
         imgui_demo.cpp
+
+        backends/imgui_impl_glfw.h
+        backends/imgui_impl_glfw.cpp
+        backends/imgui_impl_opengl3.h
+        backends/imgui_impl_opengl3.cpp
 )
+
 
 # Specify include directories (include files are in the same place)
 target_include_directories(ImGui PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/
+        ${CMAKE_SOURCE_DIR}/vendor/glfw/include
 )
 
 # Define output directories for the library
