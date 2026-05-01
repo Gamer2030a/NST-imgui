@@ -19,6 +19,12 @@ add_library(ImGui STATIC
         imstb_truetype.h
         imgui_demo.cpp
 
+        backends/imgui_impl_dx11.h
+        backends/imgui_impl_dx11.cpp
+
+        backends/imgui_impl_win32.h
+        backends/imgui_impl_win32.cpp
+
         backends/imgui_impl_glfw.h
         backends/imgui_impl_glfw.cpp
         backends/imgui_impl_opengl3.h
@@ -37,6 +43,10 @@ set_target_properties(ImGui PROPERTIES
         RUNTIME_OUTPUT_DIRECTORY ${OUTPUT_TYPE_DIR}
         ARCHIVE_OUTPUT_DIRECTORY ${OUTPUT_TYPE_DIR}
         LIBRARY_OUTPUT_DIRECTORY ${OUTPUT_TYPE_DIR}
+)
+
+target_link_libraries(ImGui PUBLIC 
+    glfw 
 )
 
 # Compiler-specific settings
